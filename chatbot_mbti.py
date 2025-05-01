@@ -8,7 +8,7 @@ from datetime import datetime
 load_dotenv()
 
 # OpenAI API 키 설정
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("k-proj-EdufTqV-iWm97jl0cAQUOQtBE6biOPYxJqTBXsdn_ioFjkqUTGqCMXF4dvn5doGr83rVPpMJl0T3BlbkFJLUCsZ82gQM5JMtJBqDY3MTODD_GxFEBrtsfvUPNIQZxM5j04wbv-3mPR4bf6G3YqIMZBwaocsA")
 
 # 띠 계산 함수
 def get_zodiac(year):
