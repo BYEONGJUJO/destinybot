@@ -14,7 +14,12 @@ st.markdown("MBTI, 혈액형, 생년월일을 입력하면 당신의 **성격, �
 # 사용자 입력
 mbti = st.text_input("MBTI를 입력하세요 (예: INFJ)", max_chars=4)
 blood = st.text_input("혈액형을 입력하세요 (예: A, B, AB, O)", max_chars=3)
-birthdate = st.date_input("생년월일을 입력하세요", format="YYYY-MM-DD")
+birth_input = st.date_input(
+    "생년월일을 선택하세요",
+    value=datetime.date(2000, 1, 1),
+    min_value=datetime.date(1900, 1, 1),
+    max_value=datetime.date.today()
+)
 
 # 띠 계산 함수
 def get_zodiac(year):
