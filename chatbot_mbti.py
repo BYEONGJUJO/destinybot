@@ -6,7 +6,7 @@ from openai import OpenAI
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Streamlit 설정
-st.set_page_config(page_title="성격 분석 챗봇", page_icon="💫", layout="centered")
+st.set_page_config(page_title="운명 자판기", page_icon="💫", layout="centered")
 st.title("🔮 성격+운세 분석 챗봇")
 st.markdown("MBTI, 혈액형, 생년월일을 입력하면 성격, 연애 스타일, 직업, 재테크, 운동, 동물상, 띠, 별자리를 분석해드려요!")
 
@@ -38,7 +38,7 @@ if st.button("🔍 분석 시작"):
     if not mbti or not blood:
         st.warning("MBTI와 혈액형을 모두 입력해 주세요.")
     else:
-        with st.spinner("GPT-4가 분석 중입니다..."):
+        with st.spinner("AI가 분석 중입니다..."):
             try:
                 year = birthdate.year
                 month = birthdate.month
@@ -49,14 +49,14 @@ if st.button("🔍 분석 시작"):
 
                 prompt = (
                     "당신은 MBTI, 혈액형, 생년월일 기반 성격 분석 전문가입니다. 아래 정보를 기반으로 아래 8가지를 한국어로 자세히 분석해 주세요:\n"
-                    "1. 성격\n2. 연애 스타일\n3. 직업 추천\n4. 재테크 성향\n5. 운동 추천\n6. 어울리는 동물상\n7. 띠 (중국식)\n8. 별자리 (양력 기준)\n"
+                    "1. 성격\n2. 연애 스타일\n3. 직업 추천\n4. 재테크 성향\n5. 운동 추천\n6. 어울리는 동물상\n7. 띠 (12간지)\n8. 별자리 (양력 기준)\n"
                     f"MBTI: {mbti.upper()}, 혈액형: {blood.upper()}, 생년월일: {year}-{month}-{day}, 띠: {chinese_zodiac}, 별자리: {western_zodiac}"
                 )
 
                 response = client.chat.completions.create(
                     model="gpt-4",
                     messages=[
-                        {"role": "system", "content": "당신은 성격 분석 전문가입니다."},
+                        {"role": "system", "content": "당신은 운명 분석 전문가입니다."},
                         {"role": "user", "content": prompt}
                     ],
                     temperature=1.0,
