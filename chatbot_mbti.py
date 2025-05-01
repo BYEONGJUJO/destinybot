@@ -1,6 +1,6 @@
 import streamlit as st
 from openai import OpenAI
-from datetime import datetime
+import datetime
 
 # Streamlit Secrets에서 API 키 불러오기
 api_key = st.secrets["OPENAI_API_KEY"]
