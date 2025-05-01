@@ -6,8 +6,8 @@ from openai import OpenAI
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Streamlit 설정
-st.set_page_config(page_title="운명 자판기", page_icon="💫", layout="centered")
-st.title("🔮 성격+운세 분석 챗봇")
+st.set_page_config(page_title="너 자신을 알라", page_icon="💫", layout="centered")
+st.title("🔮 성향 + 운명 분석 자판기")
 st.markdown("MBTI, 혈액형, 생년월일을 입력하면 성격, 연애 스타일, 직업, 재테크, 운동, 동물상, 띠, 별자리를 분석해드려요!")
 
 # 사용자 입력
